@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>ANIMATION CAR RACE</title>
+<script type="text/javascript">
+var car1,car2,car3,car4;
+var race;
+function init(){
+    car1=document.getElementById("car1");
+    car2=document.getElementById("car2");
+    car3=document.getElementById("car3");
+    car4=document.getElementById("car4");
+    car1.style.position="relative";
+    car2.style.position="relative";
+    car3.style.position="relative";
+    car4.style.position="relative";
+    car1.style.left="0px";
+    car2.style.left="0px";
+    car3.style.left="0px";
+    car4.style.left="0px";
+}
+function startRace(){
+    moveCars();
+}
+function moveCars(){
+    car1.style.left=parseInt(car1.style.left)+10+"px";
+    car2.style.left=parseInt(car2.style.left)+8+"px";
+    car3.style.left=parseInt(car3.style.left)+12+"px";
+    car4.style.left=parseInt(car4.style.left)+6+"px";
+    race=setTimeout(moveCars,100);
+}
+function stopRace(){
+    clearTimeout(race);
+    car1.style.left="0px";
+    car2.style.left="0px";
+    car3.style.left="0px";
+    car4.style.left="0px";
+}
+</script>
+</head>
+<body onload="init()"style="background-color:orange">
+<h2>ANIMATION CAR RACE</h2>
+<img id="car1"src="car.png"height="80"width="80"><br><br>
+<img id="car2"src="car.png"height="80"width="80"><br><br>
+<img id="car3"src="car.png"height="80"width="80"><br><br>
+<img id="car4"src="car.png"height="80"width="80"><br><br>
+<p>Click Start to begin the race</p>
+<button onclick="startRace()">Start Race</button>
+<button onclick="stopRace()">Stop Race</button>
+</body>
+</html>
